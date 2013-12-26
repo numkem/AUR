@@ -1,0 +1,25 @@
+# Maintainer: Sebastien Bariteau <numkem@gmail.com>
+pkgname=perl-cassandra-simple
+pkgver=0.2
+pkgrel=1
+pkgdesc="Cassandra::Simple Perl Module - Easy to use, Perl oriented client interface to Apache Cassandra"
+arch=(any)
+license=(GPL)
+url="https://github.com/fmgoncalves/p5-cassandra-simple"
+source="https://github.com/fmgoncalves/p5-cassandra-simple/archive/v0.2.tar.gz"
+md5sums=('7f7631c8463c8e49e01bbf8c1b79f1cb')
+depends=('perl' 'thrift' 'perl-resourcepool' 'perl-any-moose' 'perl-tie-ixhash' 'perl-bit-vector' 'perl-thrift-xs')
+provides=('Cassandra::Simple')
+
+build() {
+  cd "$srcdir/p5-cassandra-simple-${pkgver}"
+
+  # install module in vendor directories.
+  PERL_MM_USE_DEFAULT=1 perl Makefile.PL INSTALLDIRS=vendor || return 1
+  make  || return 1
+  make install DESTDIR=${pkgdir} || return 1
+
+  # remove perllocal.pod and .packlist
+  find $pkgdir -name perllocal.pod -delete
+  find $pkgdir -name .packlist -delete
+}

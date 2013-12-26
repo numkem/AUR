@@ -1,0 +1,23 @@
+# CPAN Name  : Devel-Size
+# Contributor: Sebastien Bariteau <numkem@gmail.com>
+pkgname=perl-devel-sizeme
+pkgver=0.06
+pkgrel=1
+pkgdesc="Extension for extracting detailed memory usage information"
+arch=('i686' 'x86_64')
+license=('PerlArtistic' 'GPL')
+options=('!emptydirs')
+depends=('perl' 'perl-extutils-makemaker>=6.56' 'perl-mojolicious' 'perl-orlite')
+url='http://search.cpan.org/dist/Devel-SizeMe'
+source="http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/Devel-SizeMe-${pkgver}.tar.gz"
+md5sums=('9c63f46dd4e14c237cc44449cc76d21a')
+
+build() {
+  DIST_DIR="${srcdir}/Devel-SizeMe-${pkgver}"
+  export PERL_MM_USE_DEFAULT=1
+  { cd "$DIST_DIR" &&    perl Makefile.PL INSTALLDIRS=vendor &&
+    make &&make test &&
+    make DESTDIR="$pkgdir" install;  } || return 1;
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+}

@@ -1,0 +1,19 @@
+# Maintainer: Sebastien Bariteau <numkem@gmail.com>
+pkgname=python2-pymqi
+pkgver=1.2
+pkgrel=1
+pkgdesc="PyMQI is a Python library for working with WebSphere MQ implementing MQI and PCF protocols"
+arch=(any)
+license=(GPL)
+source="https://launchpad.net/pymqi/trunk/1.2/+download/pymqi-${pkgver}.tar.gz"
+url="https://launchpad.net/pymqi"
+depends=('python2')
+md5sums=('b110ef3a24bf82ed041172610be58604')
+provides=('pymqi')
+
+build() {
+  cd "$srcdir/pymqi-${pkgver}"
+  
+  # install module in vendor directories.
+  python2 setup.py install --root="$pkgdir/" --optimize=1
+}

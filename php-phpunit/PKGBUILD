@@ -1,0 +1,20 @@
+# Maintainer: numkem <numkem@gmail.com>
+pkgname=pear-phpunit
+_pkgname=PHPUnit
+pkgver=3.7.19
+pkgrel=1
+pkgdesc="The PHP Unit Testing framework"
+url=http://pear.phpunit.de/
+arch=('any')
+license=('PHP')
+makedepends=('php-pear')
+depends=('php')
+source=(http://pear.phpunit.de/get/PHPUnit-${pkgver}.tgz)
+noextract=($_pkgname-$pkgver.tgz)
+md5sums=('b4479f18a799acc54bc9eb9967cc937c')
+
+package() {
+  pear install -R"$pkgdir" -O -n "$srcdir"/$_pkgname-$pkgver.tgz
+
+  rm -rf "$pkgdir"/usr/share/pear/{.channels,.depdb*,.filemap,.lock} "$pkgdir"/tmp
+}
