@@ -36,6 +36,9 @@ package() {
   
   msg2 "Installing"
   mv ./opt ${pkgdir}/
+
+  msg2 "Fixing Paths"
+  sed -i 's|WAVEMAKER_PATH.*$|WAVEMAKER_PATH=/opt/wavemaker|' ${pkgdir}/opt/wavemaker/bin/wavemaker.sh
   
   # Install license
   install -d ${pkgdir}/usr/share/licenses/wavemaker/
