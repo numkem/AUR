@@ -20,7 +20,7 @@ elif [ "$CARCH" = "x86_64" ]; then
              'c2e2270c730fa8efd06894c66d1e8b63')
 fi
 
-source=(http://wminstallers.s3.amazonaws.com/6.6.0%20RELEASE/${pkgver}/wavemaker_${pkgver}.RELEASE_${_arch}.deb
+source=(http://wminstallers.s3.amazonaws.com/6.6.0%20RELEASE/wavemaker_${pkgver}.RELEASE_${_arch}.deb
 	'wavemaker.install')
 
 build() {
