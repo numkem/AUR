@@ -2,6 +2,8 @@
 *.tar.bz2
 *.tar.xz
 *.src.tar.gz
+*.deb
+*.rpm
 *.tgz
 */pkg/
 */src/
