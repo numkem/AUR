@@ -1,0 +1,25 @@
+# Contributor: Sebastien Bariteau <numkem@gmail.com>
+# vim:set ts=2 sw=2 et:
+
+pkgname=xerox-workcentre-7800
+pkgver=1.0
+_pkgver=5.15.497.2463
+pkgrel=1
+pkgdesc="Driver for the Xerox WorkCentre 7800 series (7830/7835/7845/7855)"
+url="http://www.support.xerox.com/support/workcentre-7800-series/downloads/enus.html?associatedProduct=WorkCentre-78xx-built-in+controller&operatingSystem=unix&fileLanguage=en"
+license=('custom')
+arch=('x86_64')
+depends=('cups' 'foomatic-db-engine')
+makedepends=('rpmextract')
+source=("http://download.support.xerox.com/pub/drivers/3610/drivers/linux/pt_BR/Xeroxv5Pkg-Linux${arch}-${_pkgver}.rpm")
+md5sums=('7e7fbbe49c2913872c90bcb5c8f518fe')
+
+prepare() {
+  rpmextract.sh Xeroxv5Pkg-Linux${arch}-${_pkgver}.rpm
+}
+
+package() {
+  cd ${srcdir}/
+  mv {opt,usr} ${pkgdir}
+}
+
