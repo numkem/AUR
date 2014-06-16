@@ -7,12 +7,12 @@ Currently maintaned packages:
 
 * [atlassian-confluence](https://aur.archlinux.org/packages/atlassian-confluence/)
 * [atlassian-jira](https://aur.archlinux.org/packages/atlassian-jira/)
+* [google-cloud-sdk](https://aur.archlinux.org/packages/google-cloud-sdk)
 * [hiphop](https://aur.archlinux.org/packages/hiphop/)
 * [mysql-connector-java](https://aur.archlinux.org/packages/mysql-connector-java/)
 * [pear-log](https://aur.archlinux.org/packages/pear-log/)
 * [pear-net-imap](https://aur.archlinux.org/packages/pear-net-imap/)
 * [pear-system-daemon](https://aur.archlinux.org/packages/pear-system-daemon/)
-* [perl-archive-extract](https://aur.archlinux.org/packages/perl-archive-extract/)
 * [perl-cassandra-simple](https://aur.archlinux.org/packages/perl-cassandra-simple/)
 * [perl-cassandra-simple-git](https://aur.archlinux.org/packages/perl-cassandra-simple-git/)
 * [perl-dancer](https://aur.archlinux.org/packages/perl-dancer/)
